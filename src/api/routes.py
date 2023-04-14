@@ -23,7 +23,7 @@ def handle_hello():
 def create_new_user():
     email = request.json.get('email', None)
     password = request.json.get('password', None)
-    is_active = request.json.get('is_active', True)
+    is_active = False
 
     user=User(email=email, password=password, is_active=is_active)
     db.session.add(user)

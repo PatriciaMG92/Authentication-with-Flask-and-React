@@ -24,7 +24,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  });
 			  },
 
-			  loginUser: (user) =>{
+			  loginUser: (user, navigate) =>{
 				fetch(
 					process.env.BACKEND_URL + "/api/login/",
 					{
@@ -41,6 +41,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(data)
 					if (data.token){
 						localStorage.setItem("token", data.token)
+						navigate("/private")
+						// user.is_active = true
 						// setUserIsLogged?
 					}else{
 						console.log(data)
